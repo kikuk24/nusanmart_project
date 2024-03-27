@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Nusanmart
 
-## Getting Started
+![Nusanmart Logo](https://kikukcode.com/nusanmart-logo.png)
 
-First, run the development server:
+## Deskripsi Proyek
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Nusanmart adalah proyek yang bertujuan untuk mengembangkan Usaha Mikro, Kecil, dan Menengah (UMKM) dari skala lokal menuju skala global. Proyek ini bertujuan untuk memberdayakan UMKM di Indonesia dan menghadirkan mereka ke pasar global dengan memanfaatkan teknologi digital.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tujuan
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+1. **Memberdayakan UMKM**: Membantu UMKM di Indonesia meningkatkan kapasitas dan daya saing mereka melalui pendekatan digitalisasi.
+2. **Membuka Akses Global**: Menghubungkan UMKM Indonesia dengan pasar global sehingga mereka dapat menjangkau konsumen di seluruh dunia.
+3. **Pengembangan Ekonomi Lokal**: Mendorong pertumbuhan ekonomi lokal dengan mendukung UMKM dan mengintegrasikan mereka ke dalam pasar global.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Fitur Utama
 
-## Learn More
+- **Platform E-Commerce**: Menyediakan platform e-commerce yang memungkinkan UMKM untuk menjual produk mereka secara online.
+- **Pelatihan dan Pendampingan**: Menyediakan sumber daya pelatihan dan pendampingan untuk membantu UMKM meningkatkan keterampilan bisnis dan pemasaran online.
+- **Pengelolaan Inventaris**: Alat untuk membantu UMKM dalam mengelola inventaris mereka secara efisien.
+- **Pengiriman dan Logistik**: Menyediakan solusi pengiriman dan logistik untuk membantu UMKM dalam menjangkau konsumen di berbagai daerah.
+- **Landing Page Toko**: Memungkinkan UMKM untuk membuat landing page toko mereka sendiri untuk meningkatkan kehadiran online dan menarik pelanggan.
 
-To learn more about Next.js, take a look at the following resources:
+## Kontribusi
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Kami mengundang kontribusi dari para pengembang, desainer, dan individu yang tertarik untuk berkontribusi dalam pengembangan Nusanmart. Silakan ikuti langkah-langkah berikut untuk berkontribusi:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+1. Fork repositori ini.
+2. Buat branch baru untuk fitur yang ingin Anda tambahkan atau masalah yang ingin Anda perbaiki.
+3. Lakukan perubahan yang diperlukan.
+4. Ajukan pull request.
 
-## Deploy on Vercel
+## Lisensi
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Proyek Nusanmart dilisensikan di bawah Lisensi [MIT](LICENSE). Dengan berkontribusi pada proyek ini, Anda menyetujui lisensi ini.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Kontak
+
+Untuk informasi lebih lanjut tentang proyek ini, silakan hubungi kami melalui email di [info@nusanmart.com](mailto:info@nusanmart.com).
