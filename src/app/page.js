@@ -1,3 +1,4 @@
+import CardCategories from "@/components/Card/CardCategories";
 import CardProducts from "@/components/Card/CardProducts";
 import Navbar from "@/components/Navbar";
 import Slider from "@/components/Slider";
@@ -11,6 +12,7 @@ export default function Home() {
       <Navbar />
       <section className="max-w-7xl mx-auto">
         <Slider />
+        <CardCategories />
         <CardProducts />
       </section>
     </main>

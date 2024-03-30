@@ -31,11 +31,11 @@ const Slider = () => {
       setCurrentSlide((currentSlide + 1) % totalSlide);
     }, interval);
     return () => clearInterval(intervalId);
-  })
+  }, [])
 
 
   const handlePrev = (slider) => {
-    slider.scrollLeft -= 1200
+    slider.scrollLeft -= 1288
     if (slider.scrollLeft === 0) {
       slider.scrollLeft = 4800
     }
@@ -44,7 +44,7 @@ const Slider = () => {
     setCurrentSlide(index)
   }
   const handleNext = (slider) => {
-    slider.scrollLeft += 1200
+    slider.scrollLeft += 1288
     if (slider.scrollLeft === 3536) {
       slider.scrollLeft = 0
     }
@@ -53,9 +53,9 @@ const Slider = () => {
     <div className="">
       <FaChevronLeft className='cursor-pointer md:block hidden absolute left-0 mt-[150px] mx-8' onClick={() => handlePrev(sliderRef.current)} />
       <FaChevronRight className='cursor-pointer md:block hidden absolute right-0 mt-[150px] mx-8' onClick={() => handleNext(sliderRef.current)} />
-      <div className="flex w-full no-scrollbar md:px-16 py-4 scroll-smooth overflow-x-auto duration-500 ease-in-out transition-transform" ref={sliderRef}>
+      <div className="flex w-full no-scrollbar  scroll-smooth overflow-x-auto duration-500 ease-in-out transition-transform md:rounded-lg" ref={sliderRef}>
         {data.map((item) => (
-          <img src={item.image} alt="slider" key={item.id} className={`object-cover object-left-top md:h-[310px] min-w-full md:mr-5 md:rounded-lg ${currentSlide === item.id - 1 ? 'block' : ''}`} />
+          <img src={item.image} alt="slider" key={item.id} className={`object-cover object-left-top md:h-[310px] min-w-full  ${currentSlide === item.id - 1 ? 'block' : ''}`} />
         ))}
       </div>
 
