@@ -1,7 +1,23 @@
 "use client";
 import { useRouter } from "next/navigation";
-
+import { useState } from "react";
+import axios from "axios";
 export default function Register() {
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confPassword, setConfPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+
+  const hanleCheck = () => {
+    setShowPassword(!showPassword);
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+  }
+
   const router = useRouter();
   return (
     <div className="flex justify-center mt-8">
@@ -16,7 +32,7 @@ export default function Register() {
             <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Buat Akun Anda</h2>
           </div>
           <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-            <form className="space-y-6" action="#" method="POST">
+            <form className="space-y-6" onSubmit={handleSubmit}>
               <div>
                 <div className="mt-2">
                   <label htmlFor="username" className="block text-sm font-medium leading-6 text-gray-900">
@@ -55,7 +71,7 @@ export default function Register() {
                       id="password"
                       name="password"
                       placeholder="Password"
-                      type="password"
+                      type={showPassword ? "text" : "password"}
                       autoComplete="current-password"
                       required
                       className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-4" />
@@ -70,21 +86,22 @@ export default function Register() {
                       id="confPassword"
                       placeholder="Konfirmasi Password"
                       name="confPassword"
-                      type="confPassword"
+                      type={showPassword ? "text" : "password"}
                       autoComplete="current-password"
                       required
-                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-4" />
+                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-4 " />
                   </div>
                 </div>
                 <div className="flex justify-between my-2">
                   <div className="flex items-center gap-x-3">
                     <input
-                      id="remember-me"
-                      name="remember-me"
+                      id="show-password"
+                      name="show-password"
                       type="checkbox"
-                      className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600" />
+                      onChange={hanleCheck}
+                      className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600 cursor-pointer" />
                     <label htmlFor="remember-me" className="block text-sm font-medium leading-6 text-gray-900">
-                      Ingat Saya
+                      Show Password
                     </label>
                   </div>
                   <p className="block text-sm font-medium leading-6 text-gray-900">Lupa Password</p>

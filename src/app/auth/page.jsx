@@ -1,7 +1,28 @@
 "use client";
 import { useRouter } from "next/navigation";
+import { signIn } from "next-auth/react";
+
 export default function Auth() {
   const router = useRouter();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const signInResponse = await signIn("credentials", {
+        email: e.target.email.value,
+        password: e.target.password.value,
+        redirect: false,
+      })
+
+      if (signInResponse?.error) {
+        console.log(signInResponse.error)
+      } else {
+        router.push('/')
+      }
+    } catch (error) {
+      console.log(error)
+    }
+
+  }
   return (
     <div className="flex justify-center mt-8">
       <div style={{ minWidth: '30%' }}>
@@ -15,7 +36,7 @@ export default function Auth() {
             <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Masuk ke Akun anda</h2>
           </div>
           <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-            <form className="space-y-6" action="#" method="POST">
+            <form className="space-y-6" onSubmit={handleSubmit}>
               <div>
                 <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
                   Email address

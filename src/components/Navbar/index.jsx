@@ -3,13 +3,14 @@ import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { FaEnvelope, FaShoppingBag } from "react-icons/fa";
+import { signIn, useSession } from "next-auth/react";
 export default function Navbar() {
+  const { data: session, status } = useSession();
   const [scroll, setScroll] = useState(false);
   useEffect(() => {
     window.addEventListener("scroll", () => {
       setScroll(window.scrollY > 0);
     });
-
   }, []);
   return (
     <nav className={`sticky top-0 z-50 ${scroll ? "bg-white" : "bg-transparent"}`}>
@@ -54,8 +55,10 @@ export default function Navbar() {
           <FaEnvelope className="cursor-pointer w-6 h-6 text-black md:hidden " />
         </div>
         <div className="md:w-[200px] hidden md:flex items-center gap-3">
-          <Link href="/auth" className="px-2 py-1 bg-primary text-white">Masuk</Link>
-          <Link href="/auth" className="px-2 py-1 bg-primary text-white">Daftar</Link>
+          {session ? <Link href="/auth" className="px-2 py-1 bg-primary text-white">Akun</Link> : null}
+          {/* <button onClick={() => signIn()}>Tes</button> */}
+          {/* <Link href="/auth" className="px-2 py-1 bg-primary text-white">Masuk</Link> */}
+          {/* <Link href="/auth" className="px-2 py-1 bg-primary text-white">Daftar</Link> */}
         </div>
       </div>
     </nav>

@@ -2,7 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-const DropdownUser = () => {
+const DropdownUser = ({ user }) => {
+
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const trigger = useRef(null);
@@ -44,9 +45,9 @@ const DropdownUser = () => {
       >
         <span className="hidden text-right lg:block">
           <span className="block text-sm font-medium text-black dark:text-white">
-            Thomas Anree
+            {user.name}
           </span>
-          <span className="block text-xs">UX Designer</span>
+          <span className="block text-xs">{user.email}</span>
         </span>
 
         <span className="h-12 w-12 rounded-full">

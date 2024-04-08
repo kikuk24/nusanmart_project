@@ -14,24 +14,89 @@ datasource db {
 }
 model User{
   id Int @id @default(autoincrement())
-  name String
+  name String 
   password String
-  email String
-  remember_token String
+  email String @unique
+  remember_token String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  role String 
+  cart Cart?
+  shop Shop?
+  transaksi Transaksi?
+  page Page[]
+}
+model Cart {
+  id Int @id @default(autoincrement())
+  userId Int @unique
+  user User @relation(fields: [userId],references: [id])
+  productName String
+  total Int
 }
 model Page{
   id Int @id @default(autoincrement())
-  user_id Int
+  userId Int
+  user User @relation(fields: [userId], references: [id])
+  navId Int @unique
+  nav Nav @relation(fields: [navId],references: [id])
+  body String
 }
-model Product {
+model Nav{
   id Int @id @default(autoincrement())
-  user_id Int
-  category_id Int
+  page Page?
+  name String
+  link String
+}
+model Transaksi{
+  id Int @id @default(autoincrement())
+  userId Int @unique
+  user User @relation(fields: [userId],references: [id])
+  status Boolean
+
+}
+model Shop{
+  id Int @id @default(autoincrement())
+  user User @relation(fields: [userId], references: [id])
+  userId Int @unique
+  namaToko String @unique
+  usernameToko String
+  deskripsiToko String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+model Products {
+  id Int @id @default(autoincrement())
+  userId Int
+  categoryId Int
   name String
   deskripsi String
   slug String
   image String
   image_url String
   stok Int
+  berat Int 
   show Boolean
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+model TopLevelCategory{
+  id Int @id @default(autoincrement())
+  name String
+  slug String
+  deskripsi String
+}
+model Category{
+  id Int @id @default(autoincrement())
+  name String
+  deskripsi String
+  slug String
+}
+model AlamatUser{
+  id Int @id @default(autoincrement())
+  userId Int
+  jalan String
+  provinsi String
+  kota String
+  desa String
+  alamat_lengkap String
 }

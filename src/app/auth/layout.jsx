@@ -6,7 +6,7 @@ export const metadata = {
 export default function AuthLayout({ children }) {
   return (
     <html>
-      <body>
+      <body className="">
         {children}
       </body>
     </html>

@@ -1,18 +1,17 @@
-export async function GET(req, res, next) {
+import { NextResponse } from 'next/server'
+import { prisma } from '@/lib/db'
+export async function GET() {
   try {
-    let users = [
-      {
-        id: 1,
-        name: "John Doe",
-        email: "KZJzK@example.com",
-        password: "password123"
+    const users = await prisma.user.findMany({
+      select: {
+        id: true,
+        name: true,
+        email: true
       }
-    ]
-    let data = JSON.stringify(users)
-    return new Response(data, { status: 200 })
-
-  } catch (error) {
-    console.log(error)
-    return new Response(JSON.stringify({ error: error.message }), { status: 500 })
+    })
+    return NextResponse.json({ users, message: 'Success' }, { status: 200 })
+  }
+  catch (error) {
+    return NextResponse.json({ error: error.message }, { status: 500 })
   }
 }
